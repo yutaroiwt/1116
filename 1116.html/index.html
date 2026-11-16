@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/projapayuri/aframe-vr-kit@v0.2.0/vr-kit.js"></script>
+
+</head>
+<body>
+    <a-scene>
+        <a-sky color="lightblue">
+
+        </a-sky>
+        <a-plane
+        rotation="-90 0 0"
+        width="30"
+        height="30"
+        color="darkseagreen"
+        ></a-plane>
+        <a-entity
+        id="avatar"
+        gltf-model="wolf.glb"
+        position="0 0 -3"
+        scale="0.3 0.3 0.3"
+        avatar="
+        view:third;
+        avatarDirection:180;
+        walk: Wo_Walking;
+        idle: Robot_Wave;
+        cameraFollow:true;
+
+        "></a-entity>
+        
+        <a-box color="gold" position="0 2 -5"></a-box>
+        <a-box color="blue" position="5  2 -2"></a-box>
+        <a-box color="blue" position="4  2 3"></a-box>
+    </a-scene>
+    
+</body>
+</html>
