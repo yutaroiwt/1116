@@ -7,8 +7,30 @@
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/projapayuri/aframe-vr-kit@v0.2.0/vr-kit.js"></script>
 
+    <style>
+        #hud{
+            position: fixed;
+            top: 10px;
+            left:10px;
+            z-index: 999;
+            padding: 12px;
+        }
+
+        select{
+            font-size: 18px;
+            padding: 4px 8px;
+            width: 200px;
+        }
+    </style>
+
 </head>
 <body>
+    <div id="hud">
+        <select name="" id="avatarChenge">
+            <option value="robot.glb">ロボット</option>
+            <option value="wolf.glb">狼</option>
+        </select>
+    </div>
     <a-scene>
         <a-sky color="lightblue">
 
@@ -27,9 +49,10 @@
         avatar="
         view:third;
         avatarDirection:180;
-        walk: Wo_Walking;
-        idle: Robot_Wave;
+        walk: Gallop_Jump;
+        idle: Idle_2;
         cameraFollow:true;
+        movespeed: 5;
 
         "></a-entity>
         
@@ -37,6 +60,36 @@
         <a-box color="blue" position="5  2 -2"></a-box>
         <a-box color="blue" position="4  2 3"></a-box>
     </a-scene>
+
+    <script>
+        const avatar = document.getElementById("avatar");
+        const avatarChenge =document.getElementById("avatarChenge");
+
+        function changeAvatar(){
+            if (avatarChenge.value === "wolf.glb"){
+                avatar.setAttribute("glaft-model",avatarChenge.value);
+                avatar.setAttribute("scale","0.5 0.5 0.5");
+                avatar.setAttribute(
+                    "avatar-motion",{
+                        walk:"Gallop",
+                        idle:"Idle"
+                    }
+                )
+            }
+                if (avatarChenge.value === "robot.glb"){
+                avatar.setAttribute("gltf-model",avatarChenge.value);
+                avatar.setAttribute("scale","0.5 0.5 0.5");
+                avatar.setAttribute(
+                    "avatar-motion",{
+                        walk:"Robot_Walking",
+                        idle:"Robot_Wave"
+                    }
+                )
+            }
+
+        }
+        avatarChenge.addEventListener("change",changeAvatar)
+    </script>
     
 </body>
 </html>
