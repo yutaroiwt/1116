@@ -27,8 +27,9 @@
 <body>
     <div id="hud">
         <select name="" id="avatarChenge">
-            <option value="robot.glb">ロボット</option>
             <option value="wolf.glb">狼</option>
+            <option value="robot.glb">ロボット</option>
+            
         </select>
     </div>
     <a-scene>
@@ -52,9 +53,9 @@
         walk: Gallop_Jump;
         idle: Idle_2;
         cameraFollow:true;
-        movespeed: 5;
 
         "></a-entity>
+
         
         <a-box color="gold" position="0 2 -5"></a-box>
         <a-box color="blue" position="5  2 -2"></a-box>
@@ -67,7 +68,7 @@
 
         function changeAvatar(){
             if (avatarChenge.value === "wolf.glb"){
-                avatar.setAttribute("glaft-model",avatarChenge.value);
+                avatar.setAttribute("gltf-model",avatarChenge.value);
                 avatar.setAttribute("scale","0.5 0.5 0.5");
                 avatar.setAttribute(
                     "avatar-motion",{
@@ -78,7 +79,7 @@
             }
                 if (avatarChenge.value === "robot.glb"){
                 avatar.setAttribute("gltf-model",avatarChenge.value);
-                avatar.setAttribute("scale","0.5 0.5 0.5");
+                avatar.setAttribute("scale","0.3 0.3 0.3");
                 avatar.setAttribute(
                     "avatar-motion",{
                         walk:"Robot_Walking",
